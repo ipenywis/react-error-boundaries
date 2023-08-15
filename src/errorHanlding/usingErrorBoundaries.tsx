@@ -5,7 +5,7 @@ import CheckoutButton from "../components/CheckoutButton";
 import { ProductsFetchingError } from "../components/errors/ProductsFetchingError";
 import { fetchCartItems } from "../fetchers/products";
 
-export default class ErrorBoundary extends React.Component<any, any> {
+export class StandardErrorBoundary extends React.Component<any, any> {
   state: {
     hasError: boolean;
     error?: Error;
@@ -74,21 +74,19 @@ export const UsingErrorBoundaries = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <div className="checkout-page min-h-screen py-8 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-white mb-6">Checkout</h1>
-          <CartItems items={cartItems} />
-          <CheckoutSummary
-            subtotal={subtotal}
-            discount={discount}
-            total={total}
-          />
-          <div className="mt-4">
-            <CheckoutButton onClick={handlePayClick} />
-          </div>
+    <div className="checkout-page min-h-screen py-8 px-4">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold text-white mb-6">Checkout</h1>
+        <CartItems items={cartItems} />
+        <CheckoutSummary
+          subtotal={subtotal}
+          discount={discount}
+          total={total}
+        />
+        <div className="mt-4">
+          <CheckoutButton onClick={handlePayClick} />
         </div>
       </div>
-    </ErrorBoundary>
+    </div>
   );
 };

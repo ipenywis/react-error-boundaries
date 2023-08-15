@@ -1,7 +1,7 @@
 import React from "react";
 
 const CheckoutSummary = ({ subtotal, discount, total }) => {
-  // throw new Error("Unexpcted Render Error occured!");
+  throw new Error("Unexpcted Render Error occured!");
 
   return (
     <div className="checkout-summary p-4 bg-gray-900 border-2 border-slate-200 shadow-md rounded-md">
